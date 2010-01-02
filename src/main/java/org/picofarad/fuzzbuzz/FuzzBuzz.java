@@ -1,30 +1,52 @@
 package org.picofarad.fuzzbuzz;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FuzzBuzz {
-	public static String play(int i) {
+	private List<Rule> rules;
+
+	public FuzzBuzz() {
+		rules = new ArrayList<Rule>();
+
+		rules.add(new Rule(3, "fuzz"));
+		rules.add(new Rule(5, "buzz"));
+	}
+
+	public static class Rule {
+		public int divisor;
+		public String word;
+
+		public Rule(int i, String s) {
+			this.divisor = i;
+			this.word = s;
+		}
+
+		public void addWordIfDivisible(StringBuilder sb, int number) {
+			if (divisibleBy(number, divisor)) {
+				if (sb.length() != 0) {
+					sb.append(" ");
+				}
+				sb.append(word);
+			}
+		}
+
+		private boolean divisibleBy(int i, int divisor) {
+			return (i % divisor) == 0;
+		}
+	}
+
+	public String play(int number) {
 		StringBuilder sb = new StringBuilder();
 
-		addWordIfDivisible(i, sb, 3, "fuzz");
-		addWordIfDivisible(i, sb, 5, "buzz");
+		for (Rule rule : rules) {
+			rule.addWordIfDivisible(sb, number);
+		}
 
 		if (sb.length() == 0) {
-			return Integer.toString(i);
+			return Integer.toString(number);
 		} else {
 			return sb.toString();
 		}
-	}
-
-	private static void addWordIfDivisible(int i, StringBuilder sb,
-			int divisor, String word) {
-		if (divisibleBy(i, divisor)) {
-			if (sb.length() != 0) {
-				sb.append(" ");
-			}
-			sb.append(word);
-		}
-	}
-
-	private static boolean divisibleBy(int i, int divisor) {
-		return (i % divisor) == 0;
 	}
 }
