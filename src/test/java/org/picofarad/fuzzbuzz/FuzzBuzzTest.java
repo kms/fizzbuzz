@@ -29,4 +29,24 @@ public class FuzzBuzzTest {
 	public void fiveGivesBuzz() throws Exception {
 		assertEquals("buzz", FuzzBuzz.play(5));
 	}
+
+	@Test
+	public void sixGivesFuzz() throws Exception {
+		assertEquals("fuzz", FuzzBuzz.play(6));
+	}
+
+	@Test
+	public void tenGivesBuzz() throws Exception {
+		assertEquals("buzz", FuzzBuzz.play(10));
+	}
+
+	@Test
+	public void fifteenGivesFuzzBuzz() throws Exception {
+		assertEquals("fuzz buzz", FuzzBuzz.play(15));
+	}
+
+	@Test
+	public void thirtyGivesFuzzBuzz() throws Exception {
+		assertEquals("fuzz buzz", FuzzBuzz.play(30));
+	}
 }
