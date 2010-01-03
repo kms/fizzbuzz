@@ -7,10 +7,12 @@ import org.junit.Test;
 
 public class FuzzBuzzTest {
 	private FuzzBuzz fb;
+	private FuzzBuzz cfb;
 
 	@Before
 	public void initialize() {
-		fb = new FuzzBuzz();
+		fb = FuzzBuzz.createGeneralFuzzBuzzGame();
+		cfb = FuzzBuzz.createCoconutFuzzBuzzGame();
 	}
 
 	@Test
@@ -56,5 +58,15 @@ public class FuzzBuzzTest {
 	@Test
 	public void thirtyGivesFuzzBuzz() throws Exception {
 		assertEquals("fuzz buzz", fb.play(30));
+	}
+
+	@Test
+	public void coconutEightGivesCoconut() throws Exception {
+		assertEquals("coconut", cfb.play(8));
+	}
+
+	@Test
+	public void coconutSixtyGivesFuzzBuzzCoconut() throws Exception {
+		assertEquals("fuzz buzz coconut", cfb.play(60));
 	}
 }

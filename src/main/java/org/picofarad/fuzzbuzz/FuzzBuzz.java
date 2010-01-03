@@ -4,16 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FuzzBuzz {
-	private List<Rule> rules;
+	public static FuzzBuzz createGeneralFuzzBuzzGame() {
+		List<Rule> generalFuzzBuzzRules = new ArrayList<Rule>();
 
-	public FuzzBuzz() {
-		rules = new ArrayList<Rule>();
+		generalFuzzBuzzRules.add(new Rule(3, "fuzz"));
+		generalFuzzBuzzRules.add(new Rule(5, "buzz"));
 
-		rules.add(new Rule(3, "fuzz"));
-		rules.add(new Rule(5, "buzz"));
+		return new FuzzBuzz(generalFuzzBuzzRules);
 	}
 
-	public static class Rule {
+	public static FuzzBuzz createCoconutFuzzBuzzGame() {
+		List<Rule> coconutFuzzBuzzRules = new ArrayList<Rule>();
+
+		coconutFuzzBuzzRules.add(new Rule(3, "fuzz"));
+		coconutFuzzBuzzRules.add(new Rule(5, "buzz"));
+		coconutFuzzBuzzRules.add(new Rule(4, "coconut"));
+
+		return new FuzzBuzz(coconutFuzzBuzzRules);
+	}
+
+	private List<Rule> rules;
+
+	private FuzzBuzz(List<Rule> r) {
+		rules = r;
+	}
+
+	private static class Rule {
 		public int divisor;
 		public String word;
 
@@ -22,8 +38,8 @@ public class FuzzBuzz {
 			this.word = s;
 		}
 
-		public void addWordIfDivisible(StringBuilder sb, int number) {
-			if (divisibleBy(number, divisor)) {
+		public void addWordIfDivisible(StringBuilder sb, int i) {
+			if (divisibleBy(i, divisor)) {
 				if (sb.length() != 0) {
 					sb.append(" ");
 				}
