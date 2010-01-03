@@ -1,18 +1,19 @@
-package org.picofarad.fuzzbuzz;
+package org.picofarad.fizzbuzz;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.picofarad.fizzbuzz.FizzBuzz;
 
-public class FuzzBuzzTest {
-	private FuzzBuzz fb;
-	private FuzzBuzz cfb;
+public class FizzBuzzTest {
+	private FizzBuzz fb;
+	private FizzBuzz cfb;
 
 	@Before
 	public void initialize() {
-		fb = FuzzBuzz.createGeneralFuzzBuzzGame();
-		cfb = FuzzBuzz.createCoconutFuzzBuzzGame();
+		fb = FizzBuzz.createGeneralFizzBuzzGame();
+		cfb = FizzBuzz.createCoconutFizzBuzzGame();
 	}
 
 	@Test
@@ -23,8 +24,8 @@ public class FuzzBuzzTest {
 
 	@Test
 	public void testPlayWithDivisibleByOneRule() throws Exception {
-		assertEquals("fuzz", fb.play(3));
-		assertEquals("fuzz", fb.play(6));
+		assertEquals("fizz", fb.play(3));
+		assertEquals("fizz", fb.play(6));
 
 		assertEquals("buzz", fb.play(5));
 
@@ -33,9 +34,9 @@ public class FuzzBuzzTest {
 
 	@Test
 	public void testPlayWithDivisibleByMultipleRuleNumbers() throws Exception {
-		assertEquals("fuzz buzz", fb.play(15));
-		assertEquals("fuzz buzz", fb.play(30));
+		assertEquals("fizz buzz", fb.play(15));
+		assertEquals("fizz buzz", fb.play(30));
 
-		assertEquals("fuzz buzz coconut", cfb.play(60));
+		assertEquals("fizz buzz coconut", cfb.play(60));
 	}
 }

@@ -1,31 +1,31 @@
-package org.picofarad.fuzzbuzz;
+package org.picofarad.fizzbuzz;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FuzzBuzz {
-	public static FuzzBuzz createGeneralFuzzBuzzGame() {
-		List<Rule> generalFuzzBuzzRules = new ArrayList<Rule>();
+public class FizzBuzz {
+	public static FizzBuzz createGeneralFizzBuzzGame() {
+		List<Rule> generalFizzBuzzRules = new ArrayList<Rule>();
 
-		generalFuzzBuzzRules.add(new Rule(3, "fuzz"));
-		generalFuzzBuzzRules.add(new Rule(5, "buzz"));
+		generalFizzBuzzRules.add(new Rule(3, "fizz"));
+		generalFizzBuzzRules.add(new Rule(5, "buzz"));
 
-		return new FuzzBuzz(generalFuzzBuzzRules);
+		return new FizzBuzz(generalFizzBuzzRules);
 	}
 
-	public static FuzzBuzz createCoconutFuzzBuzzGame() {
-		List<Rule> coconutFuzzBuzzRules = new ArrayList<Rule>();
+	public static FizzBuzz createCoconutFizzBuzzGame() {
+		List<Rule> coconutFizzBuzzRules = new ArrayList<Rule>();
 
-		coconutFuzzBuzzRules.add(new Rule(3, "fuzz"));
-		coconutFuzzBuzzRules.add(new Rule(5, "buzz"));
-		coconutFuzzBuzzRules.add(new Rule(4, "coconut"));
+		coconutFizzBuzzRules.add(new Rule(3, "fizz"));
+		coconutFizzBuzzRules.add(new Rule(5, "buzz"));
+		coconutFizzBuzzRules.add(new Rule(4, "coconut"));
 
-		return new FuzzBuzz(coconutFuzzBuzzRules);
+		return new FizzBuzz(coconutFizzBuzzRules);
 	}
 
 	private List<Rule> rules;
 
-	private FuzzBuzz(List<Rule> r) {
+	private FizzBuzz(List<Rule> r) {
 		rules = r;
 	}
 
